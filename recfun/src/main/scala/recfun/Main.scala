@@ -25,7 +25,28 @@ object Main {
   /**
     * Exercise 2
     */
-  def balance(chars: List[Char]): Boolean = ???
+  def balance(chars: List[Char]): Boolean = {
+    parenthesisCount(chars, 0)
+  }
+
+  def parenthesisCount(chars: List[Char], count: Int): Boolean = {
+    if (chars.isEmpty) {
+      if (count == 0) {
+        true
+      } else {
+        false
+      }
+    }
+    else {
+      if (chars.head == '(') {
+        parenthesisCount(chars.tail, count + 1)
+      } else if (chars.head == ')') {
+        parenthesisCount(chars.tail, count - 1)
+      } else {
+        parenthesisCount(chars.tail, count)
+      }
+    }
+  }
 
   /**
     * Exercise 3
