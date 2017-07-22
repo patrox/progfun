@@ -30,7 +30,9 @@ object Main {
   }
 
   def parenthesisCount(chars: List[Char], count: Int): Boolean = {
-    if (chars.isEmpty) {
+    if (count < 0)
+      false
+    else if (chars.isEmpty) {
       if (count == 0) {
         true
       } else {
@@ -51,5 +53,13 @@ object Main {
   /**
     * Exercise 3
     */
-  def countChange(money: Int, coins: List[Int]): Int = ???
+  def countChange(money: Int, coins: List[Int]): Int = {
+    if (money == 0) {
+      0
+    } else if (coins.isEmpty) {
+      0
+    } else {
+      1
+    }
+  }
 }
